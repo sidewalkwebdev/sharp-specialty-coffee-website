@@ -1,0 +1,398 @@
+/* =========================================
+   1. FONT IMPORTS & VARIABLES
+   ========================================= */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;600;800&display=swap");
+
+:root {
+  /* Sharp Branding Palette */
+  --sharp-black: #1a1a1a;
+  --sharp-white: #ffffff;
+  --sharp-gray: #f4f4f4;
+  --sharp-accent: #e0e0e0;
+  --sharp-text-light: #888888;
+
+  --font-main: "Montserrat", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+}
+
+/* =========================================
+      2. GLOBAL RESETS
+      ========================================= */
+body {
+  font-family: var(--font-main);
+  background-color: var(--sharp-white);
+  color: var(--sharp-black);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.display-4,
+.navbar-brand {
+  font-family: var(--font-serif);
+  color: var(--sharp-black);
+}
+
+a {
+  text-decoration: none;
+  color: var(--sharp-black);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #555;
+}
+
+/* =========================================
+      3. NAVIGATION BAR
+      ========================================= */
+.navbar {
+  background-color: var(--sharp-white);
+  border-bottom: 1px solid var(--sharp-accent);
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.nav-link {
+  color: var(--sharp-black) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--sharp-black);
+  color: var(--sharp-white);
+  border: 1px solid var(--sharp-black);
+  padding: 10px 30px;
+  border-radius: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--sharp-white);
+  color: var(--sharp-black);
+}
+
+/* =========================================
+      4. MODERN SPLIT HERO
+      ========================================= */
+.split-hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 60px; /* Offset for fixed navbar */
+}
+
+.hero-text-col {
+  padding: 5rem;
+  background-color: var(--sharp-white);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-img-col {
+  height: 90vh;
+  background: url("https://s3-media0.fl.yelpcdn.com/bphoto/tYI8YGvT4eqLb3kdPz7Hkg/o.jpg")
+    center/cover no-repeat;
+  width: 100%;
+}
+
+.super-heading {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--sharp-black);
+  text-transform: uppercase;
+}
+
+/* =========================================
+      5. HOVER CARDS (The Rotation)
+      ========================================= */
+.hover-card {
+  overflow: hidden;
+  border-radius: 0;
+  position: relative;
+  background-color: #000;
+  height: 100%;
+  min-height: 300px; /* Ensures images have height on mobile */
+}
+
+.hover-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+.hover-card:hover img {
+  transform: scale(1.05);
+  opacity: 0.5;
+}
+
+.hover-card-content {
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  /* Dark gradient at bottom so text is readable on mobile */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+/* =========================================
+   5. MENU PAGE STYLES (Menu.html Specifics)
+   ========================================= */
+/* Sticky Category Nav */
+.menu-nav-scroller {
+  position: sticky;
+  top: 70px; /* Below the main navbar */
+  z-index: 800;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #eee;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+  -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.menu-nav-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-cat-link {
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: 30px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.menu-cat-link:hover,
+.menu-cat-link.active {
+  color: #000;
+  background-color: #f4f4f4;
+}
+
+/* Menu Items Grid */
+.menu-category-header {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #000;
+  display: inline-block;
+}
+
+.menu-item {
+  margin-bottom: 30px;
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.menu-item-title {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.menu-item-price {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.menu-item-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.menu-meta {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Review Cards */
+.review-card {
+  background: #f9f9f9;
+  padding: 25px;
+  height: 100%;
+  border-left: 4px solid #000;
+  transition: transform 0.2s;
+}
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================
+      6. FOOTER STYLES
+      ========================================= */
+.footer-section {
+  background-color: #000 !important;
+  color: #aaa !important;
+  font-size: 0.9rem;
+}
+
+.footer-section h4 {
+  color: #fff;
+  font-family: var(--font-serif);
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-link,
+.contact-link {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover,
+.contact-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Map & Review Buttons */
+.btn-outline-light {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* =========================================
+      7. MAP STYLING (Dark Mode)
+      ========================================= */
+.map-container {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 4px;
+  filter: grayscale(100%) invert(90%);
+  transition: filter 0.3s ease;
+}
+
+.map-container:hover {
+  filter: grayscale(0%) invert(0%);
+}
+
+/* =========================================
+      8. MOBILE RESPONSIVENESS (The Important Part)
+      ========================================= */
+@media (max-width: 991px) {
+  /* Fix Hero on Tablet/Mobile */
+  .split-hero {
+    flex-direction: column-reverse; /* Puts image on top, text below */
+    min-height: auto;
+    margin-top: 56px;
+  }
+
+  .hero-img-col {
+    height: 50vh; /* Image takes half screen height */
+  }
+
+  .hero-text-col {
+    padding: 3rem 1.5rem;
+    width: 100%;
+    align-items: center; /* Center text on mobile */
+    text-align: center;
+  }
+
+  .super-heading {
+    font-size: 3rem; /* Smaller font for mobile */
+  }
+
+  /* Fix Navigation for Mobile */
+  .navbar-collapse {
+    background-color: var(--sharp-white);
+    padding: 20px;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Smaller Phones */
+  .super-heading {
+    font-size: 2.5rem;
+  }
+
+  .display-3 {
+    font-size: 2rem;
+  }
+
+  /* Make footer items stack nicely */
+  .footer-section h4 {
+    margin-top: 20px;
+  }
+}
+/* =========================================
+   FORCE BLACK BUTTONS (No More Blue)
+   ========================================= */
+
+/* Default State: Black Background, White Text */
+.btn-primary {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Hover State: White Background, Black Text, Black Border */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
